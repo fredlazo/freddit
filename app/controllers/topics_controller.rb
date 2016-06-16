@@ -1,6 +1,5 @@
 class TopicsController < ApplicationController
   before_action :require_sign_in, except: [:index, :show]
-# #8
   before_action :authorize_user, except: [:index, :show]
 
   def index
@@ -12,12 +11,19 @@ class TopicsController < ApplicationController
   end
 
   def new
+    if current_user.moderator?
+      flash[:alert] = "You are not authorized to do that."
+      redirect_to topics_path
+    end
     @topic = Topic.new
   end
 
   def create
+    if current_user.moderator?
+      flash[:alert] = "You are not authorized to do that."
+      redirect_to topics_path and return
+    end
     @topic = Topic.new(topic_params)
-
     if @topic.save
       flash[:notice] = "Topic was saved successfully."
       redirect_to @topic
@@ -32,6 +38,7 @@ class TopicsController < ApplicationController
   end
 
   def update
+
     @topic = Topic.find(params[:id])
     @topic.assign_attributes(topic_params)
 
@@ -64,9 +71,11 @@ class TopicsController < ApplicationController
   end
 
   def authorize_user
-    unless current_user.admin?
+    unless current_user.admin? || current_user.moderator?
       flash[:alert] = "You must be an admin to do that."
       redirect_to topics_path
     end
   end
+
+
 end
