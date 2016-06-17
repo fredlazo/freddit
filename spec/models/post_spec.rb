@@ -5,11 +5,13 @@ RSpec.describe Post, type: :model do
   let(:description) { RandomData.random_paragraph }
   let(:title) { RandomData.random_sentence }
   let(:body) { RandomData.random_paragraph }
-# #3
-  let(:topic) { Topic.create!(name: name, description: description) }
-# #4
-  let(:post) { topic.posts.create!(title: title, body: body) }
 
+  #let(:topic) { Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph) }
+  let(:topic) { Topic.create!(name: name, description: description) }
+  let(:user) { User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld") }
+  let(:post) { topic.posts.create!(title: title, body: body, user:user) }
+
+  it { is_expected.to have_many(:comments) }
   it { is_expected.to belong_to(:topic) }
 
   it { is_expected.to validate_presence_of(:title) }
