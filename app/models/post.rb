@@ -3,8 +3,10 @@ class Post < ActiveRecord::Base
    has_many :comments, dependent: :destroy
    belongs_to :topic
    belongs_to :user
+
    has_many :labelings, as: :labelable
    has_many :labels, through: :labelings
+   has_many :favorites, dependent: :destroy   
 
    default_scope { order('rank DESC') }
 
