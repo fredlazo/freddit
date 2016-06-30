@@ -24,6 +24,8 @@
 
  gem 'figaro', '1.0'
 
+ gem 'responders', '~> 2.0'
+
  # Used for encrypting User passwords
  gem 'bcrypt'
 
