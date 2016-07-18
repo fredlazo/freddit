@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :labels, only: [:show]
+
   root 'welcome#index'
 
   resources :topics do
