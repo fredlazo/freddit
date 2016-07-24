@@ -38,7 +38,7 @@ class TopicsController < ApplicationController
 
 
     if @topic.save
-      @topic.labels = Label.update_labels(params[:topic][:labels])      
+      @topic.labels = Label.update_labels(params[:topic][:labels])
       flash[:notice] = "Saved"
       redirect_to @topic
     else
