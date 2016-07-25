@@ -13,7 +13,10 @@
     <ul class="nav nav-tabs">
      <li><%= link_to "Home", root_path %></li>
      <li><%= link_to "Topics", topics_path %></li>
+<<<<<<< HEAD
      <li><%= link_to "FAQ", welcome_faq_path %></li>
+=======
+>>>>>>> checkpoint34-A
 
      <div class="pull-right user-info">
        <% if current_user %>
@@ -25,6 +28,7 @@
      </div>
    </ul>
 
+<<<<<<< HEAD
    <% if flash[:notice] %>
     <div class="alert alert-success">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -42,6 +46,26 @@
     </div>
   <% end %>
   <br>
+=======
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash.now[:alert] %>
+        <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash.now[:alert] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+
+
+>>>>>>> checkpoint34-A
     <%= yield %>
   </div>
 </body>

@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160718173727) do
 
   create_table "advertisements", force: :cascade do |t|
@@ -20,6 +21,9 @@ ActiveRecord::Schema.define(version: 20160718173727) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+ActiveRecord::Schema.define(version: 20160724231654) do
+>>>>>>> checkpoint34-A
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -55,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160718173727) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "topic_id"
+<<<<<<< HEAD
     t.integer  "user_id"
   end
 
@@ -68,6 +73,11 @@ ActiveRecord::Schema.define(version: 20160718173727) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+=======
+  end
+
+  add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
+>>>>>>> checkpoint34-A
 
   create_table "topics", force: :cascade do |t|
     t.string   "name"
@@ -75,6 +85,7 @@ ActiveRecord::Schema.define(version: 20160718173727) do
     t.boolean  "public",      default: true
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+<<<<<<< HEAD
   end
 
   create_table "users", force: :cascade do |t|
@@ -84,6 +95,8 @@ ActiveRecord::Schema.define(version: 20160718173727) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "role"
+=======
+>>>>>>> checkpoint34-A
   end
 
 end

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <h1>
   <%= @post.title %><br>
@@ -13,10 +14,14 @@
   </div>
 </div>
 <br />
+=======
+<h1><%= @post.title %></h1>
+>>>>>>> checkpoint34-A
 
 <div class="row">
   <div class="col-md-8">
     <p><%= @post.body %></p>
+<<<<<<< HEAD
     <div>
       <h3>Comments</h3>
       <%= render @post.comments %>
@@ -33,4 +38,11 @@
       <%= link_to "Delete", [@post.topic, @post], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this post?'} %>
     </div>
   <% end %>
+=======
+  </div>
+  <div class="col-md-4">
+    <%= link_to "Edit", edit_topic_post_path(@post.topic, @post), class: 'btn btn-success' %>
+    <%= link_to "Delete Post", [@post.topic, @post], method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure you want to delete this post?'} %>
+  </div>
+>>>>>>> checkpoint34-A
 </div>

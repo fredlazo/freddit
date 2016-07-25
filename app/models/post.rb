@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+<<<<<<< HEAD
    belongs_to :topic
    belongs_to :user
    has_many :comments, dependent: :destroy
@@ -10,4 +11,8 @@ class Post < ActiveRecord::Base
    validates :body, length: {minimum: 20}, presence: true
    validates :topic, presence: true
    validates :user, presence: true
+=======
+   has_many :comments, dependent: :destroy
+   belongs_to :topic
+>>>>>>> checkpoint34-A
 end
